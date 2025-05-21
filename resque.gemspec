@@ -46,6 +46,7 @@ description
 
   s.add_development_dependency "thin"
   s.add_development_dependency "webrick"
+  s.add_development_dependency "base64", "~> 0.1"
 
   s.metadata['changelog_uri'] = 'https://github.com/resque/resque/blob/master/HISTORY.md'
   s.metadata['rubygems_mfa_required'] = 'true'
