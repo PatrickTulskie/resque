@@ -44,11 +44,6 @@ task "env:aj_integration" do
 end
 
 Rake::TestTask.new('test:activejob:integration' => 'env:aj_integration') do |t|
-  if Gem::Version.new(RUBY_VERSION) < Gem::Version.new("3.1")
-    puts "Integration tests require Ruby 3.1 or later"
-    exit 0
-  end
-
   t.description = "Run integration tests for Resque::ActiveJob::Adapter"
   t.libs << "test"
   t.libs << "test/active_job"

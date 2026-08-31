@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files  = [ "LICENSE", "README.markdown" ]
   s.rdoc_options      = ["--charset=UTF-8"]
 
-  s.required_ruby_version = ">= 3.0.0"
+  s.required_ruby_version = ">= 3.2.0"
 
   s.add_dependency "base64", "~> 0.1"
   s.add_dependency "logger"
