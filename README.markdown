@@ -39,13 +39,13 @@ The Resque frontend tells you what workers are doing, what workers are
 not doing, what queues you're using, what's in those queues, provides
 general usage stats, and helps you track failures.
 
-Resque 3.0 requires Ruby 3.0.0 or newer.
+Resque requires Ruby 3.2.0 or newer.
 
 **Version Support:**
-- Ruby: 3.0, 3.1, 3.2, 3.3, 3.4+
+- Ruby: 3.2, 3.3, 3.4, 4.0
 - Redis gem: 4.0+
 - Rack: 2.x or 3.x
-- Rails (for ActiveJob): 7.2+ (requires Ruby 3.1+ for Rails 8.0+)
+- Rails (for ActiveJob): 7.2+
 
 ### Resque 3.0
 

@@ -16,11 +16,10 @@ jobs:
           - 4.8
           - latest
         ruby-version:
-          - "3.0"
-          - 3.1
           - 3.2
           - 3.3
           - 3.4
+          - "4.0"
           - head
         rack-version:
           - 2
@@ -47,10 +46,10 @@ jobs:
           - 4.8
           - latest
         ruby-version:
-          - 3.1
           - 3.2
           - 3.3
           - 3.4
+          - "4.0"
           - head
         rails-version:
           - 7.2
@@ -61,9 +60,6 @@ jobs:
           - 2
           - 3
         exclude:
-          - { ruby-version: 3.1, rails-version: "8.0" }
-          - { ruby-version: 3.1, rails-version: 8.1 }
-          - { ruby-version: 3.1, rails-version: main }
           - { ruby-version: 3.2, rails-version: main }
     env:
       REDIS_VERSION: "${{ matrix.redis-version }}"
@@ -89,10 +85,10 @@ jobs:
           - 4.8
           - latest
         ruby-version:
-          - 3.1
           - 3.2
           - 3.3
           - 3.4
+          - "4.0"
           - head
         rails-version:
           - 7.2
@@ -110,9 +106,6 @@ jobs:
             rails-version: main
             continue-on-error: true
         exclude:
-          - { ruby-version: 3.1, rails-version: "8.0" }
-          - { ruby-version: 3.1, rails-version: 8.1 }
-          - { ruby-version: 3.1, rails-version: main }
           - { ruby-version: 3.2, rails-version: main }
     env:
       REDIS_VERSION: "${{ matrix.redis-version }}"
