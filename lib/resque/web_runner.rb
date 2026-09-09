@@ -227,7 +227,7 @@ module Resque
     def launch!(specific_url = nil, path = nil)
       return if options[:skip_launch]
       target = "#{specific_url || url}#{path}"
-      WINDOWS ? system("cmd", "/c", "start", "", target) : system("open", target)
+      WINDOWS ? system("rundll32", "url.dll,FileProtocolHandler", target) : system("open", target)
     end
 
     def kill!
