@@ -146,7 +146,7 @@ describe 'Resque::WebRunner' do
 
     describe 'with a launch path specified as a proc' do
       it 'evaluates the proc in the context of the runner' do
-        Resque::WebRunner.any_instance.expects(:system).once.with {|s| s =~ /\?search\=blah$/ }
+        Resque::WebRunner.any_instance.expects(:system).once.with {|*argv| argv.last =~ /\?search\=blah$/ }
         web_runner("--debug", "blah", launch_path: Proc.new {|r| "?search=#{r.args.first}" })
         assert @runner.options[:launch_path].is_a?(Proc)
       end
@@ -154,9 +154,19 @@ describe 'Resque::WebRunner' do
 
     describe 'with a launch path specified as string' do
       it 'launches to the specific path' do
-        Resque::WebRunner.any_instance.expects(:system).once.with {|s| s =~ /\?search\=blah$/ }
+        Resque::WebRunner.any_instance.expects(:system).once.with {|*argv| argv.last =~ /\?search\=blah$/ }
         web_runner("--debug", "blah", launch_path: "?search=blah")
         assert_equal @runner.options[:launch_path], "?search=blah"
+      end
+    end
+
+    describe 'with a launch path containing shell metacharacters' do
+      it 'hands the url to the browser as its own argument' do
+        injection = "?search=; touch pwned"
+        Resque::WebRunner.any_instance.expects(:system).once.with do |*argv|
+          argv.length > 1 && argv.last.end_with?(injection)
+        end
+        web_runner("--debug", launch_path: injection)
       end
     end
 
