@@ -156,8 +156,8 @@ module Resque
       end
     end
 
-    def uri_open(*args)
-      (RbConfig::CONFIG['ruby_version'] < '2.7') ? open(*args) : URI.open(*args)
+    def uri_open(url, *args)
+      URI.parse(url).open(*args)
     end
 
     def write_url
