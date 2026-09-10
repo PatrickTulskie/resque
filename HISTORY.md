@@ -1,3 +1,12 @@
+## 3.0.3
+
+### Fixed
+
+* resque-web: Fix an off-by-one error in the failed jobs pagination end index (#1931)
+* resque-web: Pass the browser url as an argv element instead of a shell string, and launch it on Windows without going through `cmd.exe` (#1956)
+* resque-web: Probe ports with `URI(...).open` instead of `Kernel.open` (#1955)
+* resque-web: Build the relatized time markup with DOM APIs instead of HTML strings (#1957)
+
 ## 3.0.2
 
 ### Added
